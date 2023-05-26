@@ -21,9 +21,13 @@ class categoriesRepository {
         name,
         description,
         created_at: new Date(),
-    })
+        })
 
-    this.categories.push(category)
+        this.categories.push(category)
+    }
+
+    listCategoriesCreated(): Category[] {
+        return this.categories
     }
 }
 
