@@ -16,7 +16,7 @@ class categoriesRepository {
     create({ name, description }: ICreateCategoryDTO) {
         const category = new Category(); 
     
-        // atribuindo valores às propriedades da instância 
+        
         Object.assign(category, {
         name,
         description,
@@ -26,6 +26,11 @@ class categoriesRepository {
         this.categories.push(category)
     }
 
+    findByName(name: string): Category {
+        const categoryNameExistsAlready = this.categories.find(category => category.name === name)
+        return categoryNameExistsAlready
+    }
+    
     listCategoriesCreated(): Category[] {
         return this.categories
     }
