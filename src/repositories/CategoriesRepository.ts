@@ -7,6 +7,7 @@ interface ICreateCategoryDTO {
 }
 
 class categoriesRepository {
+    //usa Category[] quando for se referir a diversas instâncias, já Category se refere a uma instância única
     private categories: Category[]
 
     constructor() {
@@ -15,7 +16,6 @@ class categoriesRepository {
 
     create({ name, description }: ICreateCategoryDTO) {
         const category = new Category(); 
-    
         
         Object.assign(category, {
         name,

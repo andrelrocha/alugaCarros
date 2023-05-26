@@ -1,6 +1,7 @@
 import { Router, request } from "express";
 
 import categoriesRepository from "../repositories/CategoriesRepository";
+import CreateCategoryService from "../services/CreateCategoryService";
 
 //router é um construtor para criar objetos com metódos específicos para requisições http
 const categoriesRoutes = Router() 
@@ -11,14 +12,11 @@ const repository = new categoriesRepository();
 categoriesRoutes.post("/", (request, response) => {
     const { name, description } = request.body
 
-    const categoryExistsAlready = repository.findByName(name)
+    const CreateCategory = new CreateCategoryService(repository)
 
-    if (!categoryExistsAlready) {
-        repository.create({ name, description })
-        return response.status(201).send()
-    } else {
-        return response.status(400).json({ error: "Category already exists" })
-    }
+    CreateCategory.execute({ name, description })
+
+    return response.status(201).send()
 })
 
 categoriesRoutes.get("/", (request, response) => {
