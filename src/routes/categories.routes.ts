@@ -1,25 +1,31 @@
 import { Router } from "express";
-import { v4 as uuidv4 } from 'uuid';
+
+import Category from "../model/Category";
 
 //router é um construtor para criar objetos com metódos específicos para requisições http
 const categoriesRoutes = Router()
 
-const categories = []
+const categories: Category[] = []
 
+/* ->uso de interface deve ser feito quando não houver métodos adicionais de tipagem
 interface Category {
     name: string;
     description: string;
     id: string;
-  }
+}*/
 
 categoriesRoutes.post("/", (request, response) => {
     const { name, description } = request.body
 
-    const category: Category = {
+    const category = new Category(); 
+    
+    // atribuindo valores às propriedades da instância usando o método Object.assign()
+    // Object.assign() copia os valores das propriedades especificadas para a instância category
+    Object.assign(category, {
         name,
         description,
-        id: uuidv4(),
-    }
+        created_at: new Date(),
+    })
 
     categories.push(category)
 
