@@ -25,6 +25,10 @@ class SpecificationsRepository implements ISpecificationsRepository {
         const specification = this.specifications.find(Specification => specification.name === name)
         return specification
     }
+
+    listSpecificationsCreated(): Specification[] {
+        return this.specifications
+    }
 }
 
 export default SpecificationsRepository

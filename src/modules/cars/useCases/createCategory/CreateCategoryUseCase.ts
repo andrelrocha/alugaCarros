@@ -1,4 +1,4 @@
-import categoriesRepository from "../repositories/CategoriesRepository";
+import categoriesRepository from "../../repositories/CategoriesRepository";
 
 interface IRequest {
     name: string;
@@ -6,7 +6,7 @@ interface IRequest {
 }
 
 /* precisa definir o tipo de retorno, alterar o retorno de erro, acessar o repositório (create)*/
-class CreateCategoryService {
+class CreateCategoryUseCase {
     private categoriesRepository
     
     //-> Dependency Inversion Principle - recebe o parâmetro passado quando da criação da classe com New, sendo utilizando nos métodos da classe 
@@ -26,4 +26,4 @@ class CreateCategoryService {
     }
 }
 
-export default CreateCategoryService
+export default CreateCategoryUseCase

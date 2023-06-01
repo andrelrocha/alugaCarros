@@ -16,4 +16,11 @@ specificationsRoutes.post("/", (request, response) => {
     return response.status(201).send()
 })
 
+specificationsRoutes.get("/", (request, response) => {
+    const allSpecifications = repository.listSpecificationsCreated()
+
+    return response.json(allSpecifications)
+})
+
+
 export { specificationsRoutes }

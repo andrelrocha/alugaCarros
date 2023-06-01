@@ -1,22 +1,14 @@
 import { Router } from "express";
 
 import categoriesRepository from "../modules/cars/repositories/CategoriesRepository";
-import CreateCategoryService from "../modules/cars/services/CreateCategoryService";
+import { CreateCategory } from "../modules/cars/useCases/createCategory";
 
 //router é um construtor para criar objetos com metódos específicos para requisições http
 const categoriesRoutes = Router() 
-
-//uso de repositório para encapsular a lógica de acesso e manipulação de dados relacionada a uma entidade específica do sistema
-const repository = new categoriesRepository();
+const repository = new categoriesRepository()
 
 categoriesRoutes.post("/", (request, response) => {
-    const { name, description } = request.body
-
-    const CreateCategory = new CreateCategoryService(repository)
-
-    CreateCategory.execute({ name, description })
-
-    return response.status(201).send()
+    return CreateCategory.handle( request, response )
 })
 
 categoriesRoutes.get("/", (request, response) => {
