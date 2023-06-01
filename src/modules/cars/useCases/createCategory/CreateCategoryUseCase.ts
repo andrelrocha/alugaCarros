@@ -1,4 +1,4 @@
-import categoriesRepository from "../../repositories/CategoriesRepository";
+import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
     name: string;
@@ -10,7 +10,7 @@ class CreateCategoryUseCase {
     private categoriesRepository
     
     //-> Dependency Inversion Principle - recebe o parâmetro passado quando da criação da classe com New, sendo utilizando nos métodos da classe 
-    constructor(categoriesRepositoryParams: categoriesRepository) {
+    constructor(categoriesRepositoryParams: ICategoriesRepository) {
         this.categoriesRepository = categoriesRepositoryParams
     }
     

@@ -1,10 +1,5 @@
 import Category from "../model/Category"
-
-//(Data Transfer Object)
-interface ICreateCategoryDTO {
-    name: string;
-    description: string;
-}
+import { ICreateCategoryDTO } from "./ICategoriesRepository";
 
 class categoriesRepository {
     //usa Category[] quando for se referir a diversas instâncias, já Category se refere a uma instância única
