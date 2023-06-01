@@ -9,7 +9,7 @@ interface IRequest {
 class CreateCategoryService {
     private categoriesRepository
     
-    //recebe o parametro enviado quando da criação de new CreateCategoryService()
+    //-> Dependency Inversion Principle - recebe o parâmetro passado quando da criação da classe com New, sendo utilizando nos métodos da classe 
     constructor(categoriesRepositoryParams: categoriesRepository) {
         this.categoriesRepository = categoriesRepositoryParams
     }

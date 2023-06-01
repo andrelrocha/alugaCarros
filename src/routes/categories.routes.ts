@@ -1,7 +1,7 @@
-import { Router, request } from "express";
+import { Router } from "express";
 
-import categoriesRepository from "../repositories/CategoriesRepository";
-import CreateCategoryService from "../services/CreateCategoryService";
+import categoriesRepository from "../modules/cars/repositories/CategoriesRepository";
+import CreateCategoryService from "../modules/cars/services/CreateCategoryService";
 
 //router é um construtor para criar objetos com metódos específicos para requisições http
 const categoriesRoutes = Router() 
