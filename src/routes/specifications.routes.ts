@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { CreateSpecification } from "../modules/cars/useCases/createSpecification";
+import { ListSpecification } from "../modules/cars/useCases/listSpecifications";
 
 const specificationsRoutes = Router(); 
 
@@ -9,10 +10,7 @@ specificationsRoutes.post("/", (request, response) => {
 })
 
 specificationsRoutes.get("/", (request, response) => {
-    /*const allSpecifications = repository.listSpecificationsCreated()
-
-    return response.json(allSpecifications)*/
-    return null
+    return ListSpecification.handle(request, response)
 })
 
 
