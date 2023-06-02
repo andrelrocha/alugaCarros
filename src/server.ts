@@ -1,15 +1,12 @@
 import express from 'express';
-
-import { categoriesRoutes } from './routes/categories.routes';
-import { specificationsRoutes } from './routes/specifications.routes';
+import { router } from './routes';
 
 const app = express();
 
 //Configurando o middleware para analisar o corpo das requisições como JSON.
 app.use(express.json())
 
-app.use("/categories", categoriesRoutes)
-app.use("/specifications", specificationsRoutes)
+app.use(router)
 
 const port = 3333;
 app.listen(port, () => console.log("server up"))
