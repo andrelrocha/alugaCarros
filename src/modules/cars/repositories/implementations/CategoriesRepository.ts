@@ -1,5 +1,5 @@
-import Category from "../model/Category"
-import { ICategoriesRepository, ICreateCategoryDTO } from "./ICategoriesRepository";
+import Category from "../../model/Category"
+import { ICategoriesRepository, ICreateCategoryDTO } from "../ICategoriesRepository";
 
 class CategoriesRepository implements ICategoriesRepository {
     //usa Category[] quando for se referir a diversas instâncias, já Category se refere a uma instância única
