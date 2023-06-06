@@ -24,7 +24,21 @@ docker run -p 3333:3333 nomeContainer
 *toda vez que for chamado a port 3333, procure pelo container que possua como port 3333, passando a imagem que quero rodar
 
 docker ps   -  listar os contêineres em execução no Docker
+docker stop IDContainer    - encerra o container em atividade
+docker rm IDContainer      - remove o container
 
 
+UTILIZANDO DOCKER-COMPOSE
+-------- docker-compose.yml
+version: "3.7"
 
+services:
+    app:
+        build: .
+        container_name: alugaCarro
+        ports: 
+            - 3333:3333
+        volumes:
+            - .:/usr/app
+-------------- RODAR NO TERMINAL COM -> $ docker-compose up
 
