@@ -23,7 +23,7 @@ docker build -t nomeContainer .    -  cria um container a partir do atual nível
 docker run -p 3333:3333 nomeContainer
 *toda vez que for chamado a port 3333, procure pelo container que possua como port 3333, passando a imagem que quero rodar
 
-docker ps   -  listar os contêineres em execução no Docker
+docker ps   -  lista os contêineres em execução no Docker
 docker stop IDContainer    - encerra o container em atividade
 docker rm IDContainer      - remove o container
 
@@ -40,5 +40,10 @@ services:
             - 3333:3333
         volumes:
             - .:/usr/app
--------------- RODAR NO TERMINAL COM -> $ docker-compose up
+-------------- 
+RODAR NO TERMINAL COM -> 
+$ docker-compose up [encerra quando fechar o terminal]
+$ docker-compose up -d [inicia os serviços definidos no arquivo docker-compose.yml em modo de segundo plano (detached)]
 
+
+docker logs alugaCarro -f   - abre os logs no terminal usando docker-compose, permitindo acompanhar a execução
