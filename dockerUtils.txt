@@ -1,0 +1,30 @@
+docker desktop deve estar aberto rodando (conferir na aba de notificações)
+
+Dockerfile
+----------
+FROM node
+
+
+WORKDIR /usr/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3333
+
+CMD ["npm","run","dev"]
+-----------
+
+docker build -t nomeContainer .    -  cria um container a partir do atual nível de Dockerfile usando .
+
+docker run -p 3333:3333 nomeContainer
+*toda vez que for chamado a port 3333, procure pelo container que possua como port 3333, passando a imagem que quero rodar
+
+docker ps   -  listar os contêineres em execução no Docker
+
+
+
+
